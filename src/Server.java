@@ -3,13 +3,20 @@ import java.util.*;
 public class Server {
     
     int id;
-    int taille;
+    List<Video> videos;
     List<Connexion> connexions;
 
     public Server(int id, int taille) {
         this.id = id;
-        this.taille = taille;
         this.connexions = new LinkedList<Connexion>();
+        this.videos = new LinkedList<Video>();
+    }
+
+    public void putVideo(Video video) {
+        for (Connexion c: connexions) {
+            c.endpoint.removeVideo(video);
+        }
+        videos.add(video);
     }
 
 
