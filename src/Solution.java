@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Solution {
 	public static void solution1(String file){
-		Configuration c = new Configuration(file);
+		Configuration c = new Configuration(file + ".in");
         HashSet<Server> empty_servers = new HashSet<Server>();
 		for(int i = 0; i < c.number_servers; i++){
             empty_servers.add(c.Servers[i]);
@@ -51,9 +51,9 @@ public class Solution {
 	}
 	
 	public static void main(String[] args) {
-		solution1("me_at_the_zoo.in");
-		solution1("trending_today.in");
-		solution1("videos_worth_spreading.in");
-		solution1("kittens.in");
+		solution1("me_at_the_zoo");
+		solution1("trending_today");
+		solution1("videos_worth_spreading");
+		solution1("kittens");
 	}
 }
