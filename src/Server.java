@@ -10,4 +10,10 @@ public class Server {
         this.connexions = new LinkedList<Connexion>();
     }
 
+    public void putVideo(Video video) {
+        for (Connexion c: connexions) {
+            c.endpoint.removeVideo(video);
+        }
+    }
+
 }
