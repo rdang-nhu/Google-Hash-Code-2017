@@ -4,14 +4,12 @@ public class Endpoint {
     
     int id;
     int latence_center;
-    List<Request> requests;
     List<Connexion> connexions;
     int[] numbers_request;
     
     public Endpoint(int id, int latence, int nb_videos) {
         this.id = id;
         latence_center = latence;
-        requests = new LinkedList<Request>();
         connexions = new LinkedList<Connexion>();
         numbers_request = new int[nb_videos];
     }
@@ -23,9 +21,11 @@ public class Endpoint {
     }
 
     public void addRequest(Video video, int nb) {
-        Request r = new Request(video, nb);
-        requests.add(r);
         numbers_request[video.id] += nb;
+    }
+    
+    public void removeVideo(Video video) {
+        numbers_request[video.id] = 0;
     }
 
 }
