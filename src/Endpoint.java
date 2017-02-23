@@ -5,6 +5,7 @@ public class Endpoint {
     int id;
     int latence_center;
     List<Connexion> connexions;
+    HashSet<Integer> videos;
     int[] numbers_request;
     
     public Endpoint(int id, int latence, int nb_videos) {
@@ -22,10 +23,18 @@ public class Endpoint {
 
     public void addRequest(Video video, int nb) {
         numbers_request[video.id] += nb;
+        videos.add(video.id);
     }
     
     public void removeVideo(Video video) {
         numbers_request[video.id] = 0;
+        videos.remove(video.id);
+    }
+
+    public int score() {
+        int s = 0;
+        
+        return s;
     }
 
 }
