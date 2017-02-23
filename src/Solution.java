@@ -7,19 +7,21 @@ public class Solution {
 		for(int i = 0; i < c.number_servers; i++){
             empty_servers.add(c.Servers[i]);
 		}
-
         while (!empty_servers.isEmpty()) {
+
+            System.out.println(empty_servers.size());
             
             // Etape 1 : On prend le max au score
-            Server server = null;
+            Server server_max = null;
             float score_max = -1;
             for (Server s : empty_servers) {
                 float current_score = s.score();
                 if (current_score > score_max) {
                     score_max = current_score;
-                    server = s;
+                    server_max = s;
                 }
             }
+            final Server server = server_max;
 
             // Etape 2 : on trie
             List<Video> l = server.allVideos();
@@ -38,11 +40,21 @@ public class Solution {
                 server.putVideo(v);
             }
 
+            // Étape 4 : on enlève le serveur
+            empty_servers.remove(server);
         }
+        
+		for(int i = 0; i < c.number_servers; i++){
+            Server s = c.Servers[i];
+            System.out.println(s.videos);
+            System.out.println(s.remaining_capacity);
+            
+		}
+
         c.save("test1.out");
 	}
 	
 	public static void main(String[] args) {
-		test1();
+		solution1();
 	}
 }
