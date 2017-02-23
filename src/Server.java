@@ -18,6 +18,16 @@ public class Server {
         }
         videos.add(video);
     }
+    
+    
+
+    public float score() {
+        float s = 0;
+        for (Connexion c : connexions) {
+            s += c.endpoint.score();
+        }
+        return s;
+    }
 
 
 
