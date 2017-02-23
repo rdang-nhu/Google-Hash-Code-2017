@@ -1,12 +1,12 @@
 
 public class Connexion {
-	Server S;
-	Endpoint E;
+	Server server;
+	Endpoint endpoint;
 	int latence;
 	
 	Connexion(Server server, Endpoint endpoint, int lat){
-		S = server;
-		E = endpoint;
+		this.server = server;
+		this.endpoint = endpoint;
 		latence = lat;
 	}
 	

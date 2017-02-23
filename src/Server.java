@@ -3,13 +3,15 @@ import java.util.*;
 public class Server {
     
     int id;
-    int taille;
     List<Connexion> connexions;
 
-    public Server(int id, int taille) {
+    public Server(int id) {
         this.id = id;
-        this.taille = taille;
         this.connexions = new LinkedList<Connexion>();
     }
 
-
+    public connectTo(Endpoint endpoint, int latence) {
+        Connexion c = new Connexion(this, endpoint, latence);
+        connexions.add(c);
+    }
+}
