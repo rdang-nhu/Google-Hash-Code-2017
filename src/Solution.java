@@ -29,14 +29,15 @@ public class Solution {
             Collections.sort(l, new Comparator<Video>() {
                 @Override
                 public int compare(Video v1, Video v2) {
-                    if (v1.scoreServer(server) > v2.scoreServer(server)) return 1;
-                    else return -1;
+                    if (v1.scoreServer(server) > v2.scoreServer(server)) return -1;
+                    else return 1;
                 }
             });
             System.out.println(l);
 
             // Étape 3 : on remplit
             for (Video v : l) {
+                System.out.println(v.scoreServer(server));
                 server.putVideo(v);
             }
 
@@ -44,6 +45,7 @@ public class Solution {
             empty_servers.remove(server);
         }
         
+        System.out.println("Les vidéos");
 		for(int i = 0; i < c.number_servers; i++){
             Server s = c.Servers[i];
             System.out.println(s.videos);

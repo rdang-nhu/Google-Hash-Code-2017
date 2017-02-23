@@ -33,10 +33,12 @@ public class Server {
     }
 
     public List<Video> allVideos() {
+        Set<Video> s = new HashSet<Video>();
         List<Video> l = new LinkedList<Video>();
         for (Connexion c : connexions) {
-            l.addAll(c.endpoint.videos);
+            s.addAll(c.endpoint.videos);
         }
+        l.addAll(s);
         return l;
     }
 
