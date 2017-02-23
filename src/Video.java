@@ -37,4 +37,8 @@ public class Video {
     	return ((float) score / size);
     }
 
+    public String toString() {
+
+    }
+
 }
