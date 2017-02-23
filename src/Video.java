@@ -25,7 +25,7 @@ public class Video {
         this.size = size;
     }
     
-    public int scoreServer(Server S){
+    public float scoreServer(Server S){
     	int score = 0;
     	for(Connexion connexion : S.connexions){
     		int LS = connexion.latence;
@@ -34,7 +34,7 @@ public class Video {
     		int requests = E.number_request[id];
     		score += requests*(LD-LS);
     	}
-    	return score / size;
+    	return ((float) score / size);
     }
 
 }
