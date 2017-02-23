@@ -108,22 +108,11 @@ public class Solution {
 	}
 	
 	public static void main(String[] args) {
-<<<<<<< HEAD
+
 		solution1("me_at_the_zoo");
 		solution1("trending_today");
 		solution1("videos_worth_spreading");
 		//solution1("kittens");
-=======
 
-		// solution2("me_at_the_zoo");
-		solution2("trending_today");
-		// solution1("videos_worth_spreading");
-		// solution1("kittens");
-
-		//solution1("me_at_the_zoo");
-		//solution1("trending_today");
-		//solution1("videos_worth_spreading");
-		solution1("kittens");
->>>>>>> dd5fd1630dacb7197b6b5407bf99d14ad8c01ece
 	}
 }
