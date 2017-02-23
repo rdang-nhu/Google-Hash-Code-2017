@@ -32,12 +32,13 @@ public class Endpoint {
         videos.remove(video);
     }
 
-    public int score() {
+    public float score() {
         int s = 0;
         for (Video video : videos) {
             s += number_request[video.id] / video.size;
         }
-        return s;
+        if (videos.size() == 0) return 0;
+        return (float) (s / videos.size());
     }
 
 }
