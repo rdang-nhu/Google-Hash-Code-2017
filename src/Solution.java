@@ -10,10 +10,10 @@ public class Solution {
         while (!empty_servers.isEmpty()) {
 
             System.out.println(empty_servers.size());
-            
+
             // Etape 1 : On prend le max au score
-            Server server_max = null;
-            float score_max = -1;
+            Server server_max = empty_servers.iterator().next();
+            float score_max = server_max.score();
             for (Server s : empty_servers) {
                 float current_score = s.score();
                 if (current_score > score_max) {
@@ -51,9 +51,9 @@ public class Solution {
 	}
 	
 	public static void main(String[] args) {
-		//solution1("me_at_the_zoo");
-		//solution1("trending_today");
-		//solution1("videos_worth_spreading");
+		solution1("me_at_the_zoo");
+		solution1("trending_today");
+		solution1("videos_worth_spreading");
 		solution1("kittens");
 	}
 }
