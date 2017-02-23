@@ -17,6 +17,7 @@ public class Configuration {
 	Video[] Videos;
 	Endpoint[] Endpoints;
 	Server[] Servers;
+	Request[] Requests;
 	
 	public Configuration(String file){
 		try{
@@ -42,7 +43,7 @@ public class Configuration {
 			}
 			
 			for(int i=0; i<number_servers; i++){
-				Servers[i] = new Server(i);
+				Servers[i] = new Server(i, capacity);
 			}
 			
 			for(int i = 0; i<number_servers; i++){
