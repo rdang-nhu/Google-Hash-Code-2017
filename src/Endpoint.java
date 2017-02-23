@@ -5,14 +5,14 @@ public class Endpoint {
     int id;
     int latence_center;
     List<Connexion> connexions;
-    HashSet<Integer> videos;
-    int[] numbers_request;
+    HashSet<Video> videos;
+    int[] number_request;
     
     public Endpoint(int id, int latence, int nb_videos) {
         this.id = id;
         latence_center = latence;
         connexions = new LinkedList<Connexion>();
-        numbers_request = new int[nb_videos];
+        number_request = new int[nb_videos];
     }
 
     public void connectTo(Server server, int latence) {
@@ -22,18 +22,20 @@ public class Endpoint {
     }
 
     public void addRequest(Video video, int nb) {
-        numbers_request[video.id] += nb;
-        videos.add(video.id);
+        number_request[video.id] += nb;
+        videos.add(video);
     }
     
     public void removeVideo(Video video) {
-        numbers_request[video.id] = 0;
-        videos.remove(video.id);
+        number_request[video.id] = 0;
+        videos.remove(video);
     }
 
     public int score() {
         int s = 0;
-        
+        for (Video video : videos) {
+            s += number_request[video.id] / video.size;
+        }
         return s;
     }
 
