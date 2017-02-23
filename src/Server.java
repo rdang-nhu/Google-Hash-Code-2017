@@ -10,8 +10,4 @@ public class Server {
         this.connexions = new LinkedList<Connexion>();
     }
 
-    public connectTo(Endpoint endpoint, int latence) {
-        Connexion c = new Connexion(this, endpoint, latence);
-        connexions.add(c);
-    }
 }
