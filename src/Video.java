@@ -17,7 +17,7 @@ public class Video {
     		int requests = E.numbers_request[id];
     		score += requests*(LD-LS);
     	}
-    	return score;
+    	return score / size;
     }
 
 }
