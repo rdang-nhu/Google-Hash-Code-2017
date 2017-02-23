@@ -49,7 +49,7 @@ public class Configuration {
 				line = br.readLine();
 				String[] description = line.split(" ");
 				Endpoints[i] = new Endpoint(i, Integer.parseInt(description[0]),number_videos);
-				for(int j = 0; i<Integer.parseInt(description[1]); i++){
+				for(int j = 0; j<Integer.parseInt(description[1]); j++){
 					String lat = br.readLine();
 					String[] lat_des = lat.split(" ");
 					Endpoints[i].connectTo(Servers[Integer.parseInt(lat_des[0])], Integer.parseInt(lat_des[1]));
@@ -61,7 +61,46 @@ public class Configuration {
 				String[] res_des = line.split(" ");
 				Endpoints[Integer.parseInt(res_des[1])].addRequest(Videos[Integer.parseInt(res_des[0])], Integer.parseInt(res_des[2]));;	
 			
-			br.close();}
+			}
+			br.close();
+		} catch ( IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public void save(String file_res){
+		try(BufferedWriter bw = new BufferedWriter(new FileWriter(file_res))){
+			bw.write(number_servers);
+			for(int i = 0; i< this.number_servers; i++){
+				bw.newLine();
+				bw.write(i);
+				for(int j = 0; j< Servers[i].videos.size(); j++){
+					bw.write(Servers[i].videos.get(j).id);
+					bw.write(" ");
+				}
+			}
+			bw.close();
+		}
+		catch ( IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public void load(String file_load){
+		try {
+			BufferedReader br = new BufferedReader(new FileReader(file_load));
+			String line = br.readLine();
+			for(int i =0; i<number_servers; i++){
+				line = br.readLine();
+				String[] parts = line.split(" ");
+				int num_serv = Integer.parseInt(parts[0]);
+				for(int j = 1; j< parts.length; j++){
+					Servers[num_serv].videos.add(Videos[Integer.parseInt(parts[j])]);
+				}
+			}
+			br.close();
 		} catch ( IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -69,5 +108,14 @@ public class Configuration {
 	}
 	
 	
+	public static void main(String[] args) {
+		Configuration c = new Configuration("me_at_the_zoo.in");
+		for(int i=0; i<c.number_videos; i++){
+			System.out.println(c.Videos[i].size);
+		}
+		for(int i = 0; i<c.number_endpoints; i++){
+			System.out.println(c.Endpoints[i].latence_center);
+		}
+	}
 }
 	
