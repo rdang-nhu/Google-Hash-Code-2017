@@ -32,9 +32,12 @@ public class Configuration {
 			this.number_servers = Integer.parseInt(parts[3]);
 			this.capacity = Integer.parseInt(parts[4]);
 			
+			System.out.println(number_request_descriptions);
+			
 			Videos = new Video[number_videos];
 			Endpoints = new Endpoint[number_endpoints];
 			Servers = new Server[number_servers];
+			Requests = new Request[number_request_descriptions];
 			
 			line = br.readLine();
 			parts = line.split(" ");
@@ -60,9 +63,11 @@ public class Configuration {
 			for(int i=0; i<number_request_descriptions; i++){
 				line = br.readLine();
 				String[] res_des = line.split(" ");
-				Endpoints[Integer.parseInt(res_des[1])].addRequest(Videos[Integer.parseInt(res_des[0])], Integer.parseInt(res_des[2]));;	
-			
+				Endpoints[Integer.parseInt(res_des[1])].addRequest(Videos[Integer.parseInt(res_des[0])], Integer.parseInt(res_des[2]));
+				Requests[i] = new Request(Integer.parseInt(res_des[2]), Videos[Integer.parseInt(res_des[0])], Endpoints[Integer.parseInt(res_des[1])]);
 			}
+			
+			
 			br.close();
 		} catch ( IOException e) {
 			// TODO Auto-generated catch block
