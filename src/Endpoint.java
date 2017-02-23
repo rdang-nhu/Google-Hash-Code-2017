@@ -13,6 +13,7 @@ public class Endpoint {
         latence_center = latence;
         connexions = new LinkedList<Connexion>();
         number_request = new int[nb_videos];
+        videos = new HashSet<Video>();
     }
 
     public void connectTo(Server server, int latence) {

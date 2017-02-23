@@ -110,12 +110,12 @@ public class Configuration {
 	
 	public static void main(String[] args) {
 		Configuration c = new Configuration("me_at_the_zoo.in");
-		for(int i=0; i<c.number_videos; i++){
-			System.out.println(c.Videos[i].size);
-		}
-		for(int i = 0; i<c.number_endpoints; i++){
-			System.out.println(c.Endpoints[i].latence_center);
-		}
+//		for(int i=0; i<c.number_videos; i++){
+//			System.out.println(c.Videos[i].size);
+//		}
+//		for(int i = 0; i<c.number_endpoints; i++){
+//			System.out.println(c.Endpoints[i].latence_center);
+//		}
 	}
 }
 	
