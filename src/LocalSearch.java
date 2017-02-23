@@ -15,6 +15,7 @@ public class LocalSearch {
 					Video v = s.videos.get(new Random().nextInt(s.videos.size()));
 					if(!toRemove.contains(v)){
 						delta_score -= v.scoreLocalSearch(s);
+						System.out.println(v.scoreLocalSearch(s));
 						toRemove.add(v);
 						freesize += v.size;
 					}
