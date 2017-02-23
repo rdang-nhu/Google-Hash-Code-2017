@@ -60,11 +60,14 @@ public class Configuration {
 				line = br.readLine();
 				String[] res_des = line.split(" ");
 				Endpoints[Integer.parseInt(res_des[1])].addRequest(Videos[Integer.parseInt(res_des[0])], Integer.parseInt(res_des[2]));;	
-			}
+			
+			br.close();}
 		} catch ( IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
+	
+	
 }
 	
