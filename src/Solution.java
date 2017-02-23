@@ -108,9 +108,15 @@ public class Solution {
 	}
 	
 	public static void main(String[] args) {
+
 		// solution2("me_at_the_zoo");
 		solution2("trending_today");
 		// solution1("videos_worth_spreading");
 		// solution1("kittens");
+
+		//solution1("me_at_the_zoo");
+		//solution1("trending_today");
+		//solution1("videos_worth_spreading");
+		solution1("kittens");
 	}
 }
