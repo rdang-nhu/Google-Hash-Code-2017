@@ -77,13 +77,12 @@ public class Configuration {
 	
 	public void save(String file_res){
 		try(BufferedWriter bw = new BufferedWriter(new FileWriter(file_res))){
-			bw.write(number_servers);
+			bw.write("" + number_servers);
 			for(int i = 0; i< this.number_servers; i++){
 				bw.newLine();
-				bw.write(i);
+				bw.write(""+i);
 				for(int j = 0; j< Servers[i].videos.size(); j++){
-					bw.write(Servers[i].videos.get(j).id);
-					bw.write(" ");
+					bw.write(" " + Servers[i].videos.get(j).id);
 				}
 			}
 			bw.close();
