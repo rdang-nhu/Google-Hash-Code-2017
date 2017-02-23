@@ -13,7 +13,7 @@ public class Video {
     	for(Connexion connexion : S.connexions){
     		int LS = connexion.latence;
     		Endpoint E = connexion.endpoint;
-    		int LD = E.latence_data_center;
+    		int LD = E.latence_center;
     		int requests = E.numbers_request[id];
     		score += requests*(LD-LS);
     	}
