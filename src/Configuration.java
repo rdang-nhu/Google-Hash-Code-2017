@@ -97,7 +97,7 @@ public class Configuration {
 				String[] parts = line.split(" ");
 				int num_serv = Integer.parseInt(parts[0]);
 				for(int j = 1; j< parts.length; j++){
-					Servers[num_serv].videos.add(Videos[Integer.parseInt(parts[j])]);
+					Servers[num_serv].putVideo(Videos[Integer.parseInt(parts[j])]);
 				}
 			}
 			br.close();
@@ -116,6 +116,9 @@ public class Configuration {
 //		for(int i = 0; i<c.number_endpoints; i++){
 //			System.out.println(c.Endpoints[i].latence_center);
 //		}
+		int a = 2;
+		int b = 5;
+		System.out.println((float)a/b);
 	}
 }
 	
