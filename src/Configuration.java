@@ -48,7 +48,7 @@ public class Configuration {
 				Servers[i] = new Server(i, capacity);
 			}
 			
-			for(int i = 0; i<number_servers; i++){
+			for(int i = 0; i<number_endpoints; i++){
 				line = br.readLine();
 				String[] description = line.split(" ");
 				Endpoints[i] = new Endpoint(i, Integer.parseInt(description[0]),number_videos);
@@ -61,7 +61,9 @@ public class Configuration {
 			
 			for(int i=0; i<number_request_descriptions; i++){
 				line = br.readLine();
+				System.out.println(line);
 				String[] res_des = line.split(" ");
+				System.out.println(i);
 				Endpoints[Integer.parseInt(res_des[1])].addRequest(Videos[Integer.parseInt(res_des[0])], Integer.parseInt(res_des[2]));
 				Requests[i] = new Request(Integer.parseInt(res_des[2]), Videos[Integer.parseInt(res_des[0])], Endpoints[Integer.parseInt(res_des[1])]);
 			}
