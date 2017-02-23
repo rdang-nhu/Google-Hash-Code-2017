@@ -32,7 +32,6 @@ public class Configuration {
 			this.number_servers = Integer.parseInt(parts[3]);
 			this.capacity = Integer.parseInt(parts[4]);
 			
-			System.out.println(number_request_descriptions);
 			
 			Videos = new Video[number_videos];
 			Endpoints = new Endpoint[number_endpoints];
