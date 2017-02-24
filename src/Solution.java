@@ -1,6 +1,37 @@
 import java.util.*;
 
 public class Solution {
+
+	public static void bourrin(String file){
+		Configuration c = new Configuration(file + ".in");
+    
+        HashSet<Couple> couples = new HashSet<Couple>();
+		for(int i = 0; i < c.number_servers; i++){
+            Server s = c.Servers[i];
+            for (Video v : s.allVideos()) {
+                couples.add(new Couple(s, v));
+            }
+		}
+        while (!couples.isEmpty()) {
+            System.out.println(couples.size());
+
+            // Etape 1 : On prend le max au score
+            Couple couple_max = couples.iterator().next();
+            float score_max = couple_max.score();
+            for (Couple current : couples) {
+                float current_score = current.score();
+                if (current_score > score_max) {
+                    score_max = current_score;
+                    couple_max = current;
+                }
+            }
+            couple_max.putVideo();
+            couples.remove(couple_max);
+        }
+        
+        c.save(file + ".out");
+	}
+	
 	public static void solution1(String file){
 		Configuration c = new Configuration(file + ".in");
         HashSet<Server> empty_servers = new HashSet<Server>();
@@ -8,12 +39,11 @@ public class Solution {
             empty_servers.add(c.Servers[i]);
 		}
         while (!empty_servers.isEmpty()) {
-
             System.out.println(empty_servers.size());
-            
+
             // Etape 1 : On prend le max au score
-            Server server_max = null;
-            float score_max = -1;
+            Server server_max = empty_servers.iterator().next();
+            float score_max = server_max.score();
             for (Server s : empty_servers) {
                 float current_score = s.score();
                 if (current_score > score_max) {
@@ -42,11 +72,6 @@ public class Solution {
             empty_servers.remove(server);
         }
         
-		for(int i = 0; i < c.number_servers; i++){
-            Server s = c.Servers[i];
-            
-		}
-
         c.save(file + ".out");
 	}
 	
@@ -108,11 +133,9 @@ public class Solution {
 	}
 	
 	public static void main(String[] args) {
-
-		solution1("me_at_the_zoo");
-		solution1("trending_today");
-		solution1("videos_worth_spreading");
-		//solution1("kittens");
-
+		bourrin("me_at_the_zoo");
+		bourrin("videos_worth_spreading"); // Un peu long
+		//bourrin("kittens"); // Trop long
+		//bourrin("trending_today"); // Pareil
 	}
 }
