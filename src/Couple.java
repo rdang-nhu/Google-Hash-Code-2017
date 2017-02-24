@@ -2,6 +2,7 @@ public class Couple {
     
     Server server;
     Video video;
+    float score;
 
     public Couple(Server s, Video v) {
         server = s;
@@ -27,6 +28,13 @@ public class Couple {
 
     public float score() {
         return video.scoreServer(server);
+    }
+    
+    public float memoizedScore(Couple c) {
+    	if(c == null || c.video == video){
+    		score = video.scoreServer(server);
+    	}
+        return score;
     }
 
     public void putVideo() {

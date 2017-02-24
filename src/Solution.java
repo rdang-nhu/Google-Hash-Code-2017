@@ -12,6 +12,9 @@ public class Solution {
                 couples.add(new Couple(s, v));
             }
 		}
+		
+		Couple Last_Couple = null;
+		
         while (!couples.isEmpty()) {
             System.out.println(couples.size());
 
@@ -19,13 +22,14 @@ public class Solution {
             Couple couple_max = couples.iterator().next();
             float score_max = couple_max.score();
             for (Couple current : couples) {
-                float current_score = current.score();
+                float current_score = current.memoizedScore(Last_Couple); //modifié en memoizedScore
                 if (current_score > score_max) {
                     score_max = current_score;
                     couple_max = current;
                 }
             }
             couple_max.putVideo();
+            Last_Couple = couple_max;
             couples.remove(couple_max);
         }
         
@@ -133,9 +137,9 @@ public class Solution {
 	}
 	
 	public static void main(String[] args) {
-		bourrin("me_at_the_zoo");
-		bourrin("videos_worth_spreading"); // Un peu long
-		//bourrin("kittens"); // Trop long
+		// bourrin("me_at_the_zoo");
+		// bourrin("videos_worth_spreading"); // Un peu long
+		bourrin("kittens"); // Trop long
 		//bourrin("trending_today"); // Pareil
 	}
 }
