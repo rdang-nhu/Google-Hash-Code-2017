@@ -21,7 +21,7 @@ public class LocalSearch {
 				}
 			}
 			delta_score += req.video.scoreLocalSearch(s);
-			System.out.println(req.video.scoreLocalSearch(s));
+			//System.out.println(req.video.scoreLocalSearch(s));
 			if(delta_score > 0){
 				s.videos.removeAll(toRemove);
 				s.videos.add(req.video);

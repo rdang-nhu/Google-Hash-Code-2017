@@ -37,10 +37,6 @@ public class Video {
     	return ((float) score / size);
     }
 
-    public String toString() {
-        return "" + id;
-    }
-
     public float scoreLocalSearch(Server S){
     	int score = 0;
     	for(Connexion connexion : S.connexions){
@@ -53,4 +49,8 @@ public class Video {
     	return score;
     }
     
+    public String toString() {
+        return "Video : " + id + ", taille : " + size;
+    }
+
 }
